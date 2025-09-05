@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animación Elevador</title>
+    <style>
+        canvas {
+            border: 1px solid #0476f8;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="micanvas" width="800" height="800"></canvas>
+
+    <script>var y = 0;  
+        var dy = 2; 
+
+        var canvas = document.getElementById("micanvas");
+        var context = canvas.getContext("2d");
+
+        function animate() {
+            context.clearRect(0, 0, canvas.width, canvas.height); 
+
+            
+            context.fillStyle = "rgba(173,216,230,0.5)";
+            context.fillRect(250, 0, 300, 800);
+
+            
+            context.fillStyle = "black";
+            context.font = "20px Arial";
+            context.textAlign = "center";
+            context.fillText("Elevador", 400, 590);
+
+            
+            context.fillStyle = "gray";
+            context.fillRect(325, y, 150, 200);
+
+            
+            if (y < 600) {
+                y += dy;
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();</script>
+</body>
+</html>
+
