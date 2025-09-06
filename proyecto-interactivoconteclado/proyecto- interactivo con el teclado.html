@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>Key Codes</title>
+  </head>
+  
+  <head>
     <style>
       body {
         background-color: hotpink;
@@ -26,6 +29,7 @@
       window.onload = function () {
         var canvas = document.getElementById("canvas");
         var context = canvas.getContext("2d");
+        
         context.font = '24pt Times';
         context.fillStyle = 'white';
         context.textAlign = 'center';
@@ -45,7 +49,6 @@
         var imagen5 = new Image();
         imagen5.src = "starshipsnicki.jpg";
 
-        // Dibujar imagen inicial (opcional)
         imagen.onload = function() {
           context.drawImage(imagen, 50, 75, 700, 450);
         }
@@ -56,7 +59,7 @@
           context.font = '24pt Times';
           context.textAlign = 'center';
 
-          switch (event.key.toUpperCase()) { // detectar mayúsculas o minúsculas
+          switch (event.key.toUpperCase()) { 
             case 'A':
               context.drawImage(imagen, 50, 75, 700, 450);
               context.fillText('Letra A', 400, 58);
