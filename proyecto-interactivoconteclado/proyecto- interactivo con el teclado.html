@@ -7,7 +7,6 @@
       body {
         background-color: hotpink;
         text-align: center;
-        background-image: url("Proyecto-InteractivoConTeclado/flagnicki.jpg");
       }
       canvas {
         background-color: hotpink;
@@ -18,19 +17,11 @@
     </style>
   </head>
   <body>
-    <aside>Open debugging console in web browser and press a key.</aside>
+    <aside>Open debugging console in web browser and press arrow key.</aside>
     <aside>"Press the keys A, B, F, O or S"</aside>
     <canvas id="canvas" width="800" height="600"></canvas>
 
     <script>
-      const keycode = {
-        LETRA_A: 65,
-        LETRA_B: 66,
-        LETRA_F: 70,
-        LETRA_O: 79,
-        LETRA_S: 83
-      };
-
       window.onload = function () {
         var canvas = document.getElementById("canvas");
         var context = canvas.getContext("2d");
@@ -38,52 +29,58 @@
         context.fillStyle = 'white';
         context.textAlign = 'center';
 
+        // Cargar imágenes
         var imagen = new Image();
-        imagen.src = "Proyecto-InteractivoConTeclado/anacondanicki.jpg";
+        imagen.src = "anacondanicki.jpg";
 
         var imagen2 = new Image();
-        imagen2.src = "Proyecto-InteractivoConTeclado/barbieworldnicki.jpg";
+        imagen2.src = "barbieworldnicki.jpg";
 
         var imagen3 = new Image();
-        imagen3.src = "Proyecto-InteractivoConTeclado/feelingmyselfnicki.jpg";
+        imagen3.src = "feelingmyselfnicki.jpg";
 
         var imagen4 = new Image();
-        imagen4.src = "Proyecto-InteractivoConTeclado/onlynicki.jpg";
+        imagen4.src = "onlynicki.jpg";
 
         var imagen5 = new Image();
-        imagen5.src = "Proyecto-InteractivoConTeclado/starshipsnicki.jpg";
+        imagen5.src = "starshipsnicki.jpg";
+
+        // Dibujar imagen inicial (opcional)
+        imagen.onload = function() {
+          context.drawImage(imagen, 50, 75, 700, 450);
+        }
 
         function onKeyboardEvent(event) {
           context.clearRect(0, 0, canvas.width, canvas.height);
+          context.fillStyle = 'white';
+          context.font = '24pt Times';
+          context.textAlign = 'center';
 
-          switch (event.keyCode) {
-            case keycode.LETRA_A:
+          switch (event.key.toUpperCase()) { // detectar mayúsculas o minúsculas
+            case 'A':
               context.drawImage(imagen, 50, 75, 700, 450);
               context.fillText('Letra A', 400, 58);
               break;
-            case keycode.LETRA_B:
+            case 'B':
               context.drawImage(imagen2, 50, 75, 700, 450);
               context.fillText('Letra B', 400, 58);
               break;
-            case keycode.LETRA_F:
+            case 'F':
               context.drawImage(imagen3, 50, 75, 700, 450);
               context.fillText('Letra F', 400, 58);
               break;
-            case keycode.LETRA_O:
+            case 'O':
               context.drawImage(imagen4, 50, 75, 700, 450);
               context.fillText('Letra O', 400, 58);
               break;
-            case keycode.LETRA_S:
+            case 'S':
               context.drawImage(imagen5, 50, 75, 700, 450);
               context.fillText('Letra S', 400, 58);
               break;
             default:
-              console.log("Key pressed:", event.keyCode);
+              console.log('Key pressed:', event.key);
           }
 
-          context.font = '24pt Times';
-          context.fillStyle = 'white';
-          context.textAlign = 'center';
           context.fillText('Press A, B, F, O or S', 400, 570);
         }
 
@@ -92,3 +89,4 @@
     </script>
   </body>
 </html>
+
