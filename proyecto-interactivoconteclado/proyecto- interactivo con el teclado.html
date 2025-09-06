@@ -5,12 +5,12 @@
     <title>Key Codes</title>
     <style>
       body {
-        margin: 0;
+        background-color: hotpink;
         text-align: center;
+        background-image: url(flagnicki.jpg);
       }
       canvas {
-        display: block;
-        margin: 0 auto;
+        background-color: hotpink;
       }
       aside:nth-of-type(2) {
         color: white;
@@ -25,57 +25,66 @@
     <script>
       window.onload = function () {
         var canvas = document.getElementById("canvas");
-        var ctx = canvas.getContext("2d");
+        var context = canvas.getContext("2d");
+        context.font = '24pt Times';
+        context.fillStyle = 'white';
+        context.textAlign = 'center';
 
-        // Cargar imágenes
-        var fondo = new Image();
-        fondo.src = "flagnicki.jpg";
+        var imagen = new Image();
+        imagen.src = "anacondanicki.jpg";
 
-        var imagenes = {
-          'A': new Image(),
-          'B': new Image(),
-          'F': new Image(),
-          'O': new Image(),
-          'S': new Image()
-        };
+        var imagen2 = new Image();
+        imagen2.src = "barbieworldnicki.jpg";
 
-        imagenes['A'].src = "anacondanicki.jpg";
-        imagenes['B'].src = "barbieworldnicki.jpg";
-        imagenes['F'].src = "feelingmyselfnicki.jpg";
-        imagenes['O'].src = "onlynicki.jpg";
-        imagenes['S'].src = "starshipsnicki.jpg";
+        var imagen3 = new Image();
+        imagen3.src = "feelingmyselfnicki.jpg";
 
-        // Función para dibujar todo
-        function dibujar(key) {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          ctx.drawImage(fondo, 0, 0, canvas.width, canvas.height);
+        var imagen4 = new Image();
+        imagen4.src = "onlynicki.jpg";
 
-          if (key && imagenes[key]) {
-            ctx.drawImage(imagenes[key], 50, 75, 700, 450);
-            ctx.fillStyle = 'white';
-            ctx.font = '24pt Times';
-            ctx.textAlign = 'center';
-            ctx.fillText('Letra ' + key, 400, 58);
-          }
+        var imagen5 = new Image();
+        imagen5.src = "starshipsnicki.jpg";
 
-          ctx.fillStyle = 'white';
-          ctx.font = '24pt Times';
-          ctx.textAlign = 'center';
-          ctx.fillText('Press A, B, F, O or S', 400, 570);
+        // Dibujar imagen inicial (opcional)
+        imagen.onload = function() {
+          context.drawImage(imagen, 50, 75, 700, 450);
         }
 
-        // Dibujar solo el fondo al inicio
-        fondo.onload = function() {
-          dibujar();
-        };
+        function onKeyboardEvent(event) {
+          context.clearRect(0, 0, canvas.width, canvas.height);
+          context.fillStyle = 'white';
+          context.font = '24pt Times';
+          context.textAlign = 'center';
 
-        // Detectar teclas
-        window.addEventListener('keydown', function(e){
-          var key = e.key.toUpperCase();
-          if (['A','B','F','O','S'].includes(key)) {
-            dibujar(key);
+          switch (event.key.toUpperCase()) { // detectar mayúsculas o minúsculas
+            case 'A':
+              context.drawImage(imagen, 50, 75, 700, 450);
+              context.fillText('Letra A', 400, 58);
+              break;
+            case 'B':
+              context.drawImage(imagen2, 50, 75, 700, 450);
+              context.fillText('Letra B', 400, 58);
+              break;
+            case 'F':
+              context.drawImage(imagen3, 50, 75, 700, 450);
+              context.fillText('Letra F', 400, 58);
+              break;
+            case 'O':
+              context.drawImage(imagen4, 50, 75, 700, 450);
+              context.fillText('Letra O', 400, 58);
+              break;
+            case 'S':
+              context.drawImage(imagen5, 50, 75, 700, 450);
+              context.fillText('Letra S', 400, 58);
+              break;
+            default:
+              console.log('Key pressed:', event.key);
           }
-        });
+
+          context.fillText('Press A, B, F, O or S', 400, 570);
+        }
+
+        window.addEventListener('keydown', onKeyboardEvent, false);
       };
     </script>
   </body>
