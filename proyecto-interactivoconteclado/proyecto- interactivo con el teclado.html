@@ -34,26 +34,7 @@
         context.fillStyle = 'white';
         context.textAlign = 'center';
 
-        var imagen = new Image();
-        imagen.src = "anacondanicki.jpg";
-
-        var imagen2 = new Image();
-        imagen2.src = "barbieworldnicki.jpg";
-
-        var imagen3 = new Image();
-        imagen3.src = "feelingmyselfnicki.jpg";
-
-        var imagen4 = new Image();
-        imagen4.src = "onlynicki.jpg";
-
-        var imagen5 = new Image();
-        imagen5.src = "starshipsnicki.jpg";
-
-        imagen.onload = function() {
-          context.drawImage(imagen, 50, 75, 700, 450);
-        }
-
-        function onKeyboardEvent(event) {
+          function onKeyboardEvent(event) {
           context.clearRect(0, 0, canvas.width, canvas.height);
           context.fillStyle = 'white';
           context.font = '24pt Times';
@@ -82,6 +63,25 @@
               break;
             default:
               console.log('Key pressed:', event.key);
+              
+        var imagen = new Image();
+        imagen.src = "anacondanicki.jpg";
+
+        var imagen2 = new Image();
+        imagen2.src = "barbieworldnicki.jpg";
+
+        var imagen3 = new Image();
+        imagen3.src = "feelingmyselfnicki.jpg";
+
+        var imagen4 = new Image();
+        imagen4.src = "onlynicki.jpg";
+
+        var imagen5 = new Image();
+        imagen5.src = "starshipsnicki.jpg";
+
+        imagen.onload = function() {
+          context.drawImage(imagen, 50, 75, 700, 450);
+        }
           }
 
           context.fillText('Press A, B, F, O or S', 400, 570);
