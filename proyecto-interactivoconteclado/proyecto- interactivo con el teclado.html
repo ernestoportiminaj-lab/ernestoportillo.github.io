@@ -7,9 +7,11 @@
       body {
         background-color: hotpink;
         text-align: center;
+        margin: 0;
       }
       canvas {
-        background-color: hotpink;
+        display: block;
+        margin: 0 auto;
       }
       aside:nth-of-type(2) {
         color: white;
@@ -29,7 +31,11 @@
         context.fillStyle = 'white';
         context.textAlign = 'center';
 
-        // Cargar imágenes
+        // Fondo
+        var fondo = new Image();
+        fondo.src = "flagnicki.jpg";
+
+        // Imágenes
         var imagen = new Image();
         imagen.src = "anacondanicki.jpg";
 
@@ -45,18 +51,23 @@
         var imagen5 = new Image();
         imagen5.src = "starshipsnicki.jpg";
 
-        // Dibujar imagen inicial (opcional)
-        imagen.onload = function() {
-          context.drawImage(imagen, 50, 75, 700, 450);
+        // Dibujar fondo + imagen inicial cuando cargue todo
+        fondo.onload = function() {
+          context.drawImage(fondo, 0, 0, canvas.width, canvas.height);
+          imagen.onload = function() {
+            context.drawImage(imagen, 50, 75, 700, 450);
+          }
         }
 
         function onKeyboardEvent(event) {
           context.clearRect(0, 0, canvas.width, canvas.height);
+          // Dibujar fondo siempre primero
+          context.drawImage(fondo, 0, 0, canvas.width, canvas.height);
           context.fillStyle = 'white';
           context.font = '24pt Times';
           context.textAlign = 'center';
 
-          switch (event.key.toUpperCase()) { // detectar mayúsculas o minúsculas
+          switch (event.key.toUpperCase()) {
             case 'A':
               context.drawImage(imagen, 50, 75, 700, 450);
               context.fillText('Letra A', 400, 58);
@@ -89,4 +100,3 @@
     </script>
   </body>
 </html>
-
