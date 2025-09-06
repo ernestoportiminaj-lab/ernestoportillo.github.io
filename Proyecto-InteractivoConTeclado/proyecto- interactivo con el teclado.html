@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Key Codes</title>
+    
+  </head>
+  <style>
+    body{
+background-color: hotpink;
+text-align: center;
+background-image: url(flagnicki.jpg);
+    }
+    canvas{
+      background-color: hotpink;
+    }
+    aside:nth-of-type(2) {
+  color: white;
+}
+  </style>
+  <body>
+    <aside>Open debugging console in web browser and press arrow key.</aside>
+    <aside>"Press the keys "A, B, F, O or S"</aside>
+    <canvas id="canvas" width="800" height="600"></canvas>
+
+      <script src="Keycodes.js"></script>
+    <script>
+    window.onload = function () {
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    context.font = '24pt Times';
+    context.fillStyle = 'white';
+    context.fontweight = 'italic'; 
+    context.textAlign = 'center';
+    
+    
+
+   
+   
+
+      function onKeyboardEvent (event) {
+        switch (event.keyCode) {
+        case keycode.LETRA_A:
+          console.log("up!");
+          context.clearRect(0,0, innerWidth, innerHeight);
+          context.drawImage(imagen, 50, 75, 700, 450);
+          context.fillText('Letra A', 400, 58);
+          context.font = '24pt Times';
+          context.fillStyle = 'white';
+          context.fontweight = 'italic';
+          context.textAlign = 'center';
+          context.fillText('Press A, C, H, N or P', 400, 570);
+          break;
+        case keycode.LETRA_B:
+          console.log("down!");
+           context.clearRect(0,0, innerWidth, innerHeight);
+          context.drawImage(imagen2, 50, 75, 700, 450);
+          context.fillText('Letra B', 400, 58);
+          context.font = '24pt Times';
+          context.fillStyle = 'white';
+          context.fontweight = 'italic';
+          context.textAlign = 'center';
+          context.fillText('Press A, C, H, N or P', 400, 570);
+          break;
+        case keycode.LETRA_F:
+          console.log("left!");
+          context.clearRect(0,0, innerWidth, innerHeight);
+          context.drawImage(imagen3, 50, 75, 700, 450);
+          context.fillText('Letra F', 400, 58);
+          context.font = '24pt Times';
+          context.fillStyle = 'white';
+          context.fontweight = 'italic';
+          context.textAlign = 'center';
+          context.fillText('Press A, C, H, N or P', 400, 570);
+          break;
+        case keycode.LETRA_O:
+          console.log("right!");
+          context.clearRect(0,0, innerWidth, innerHeight);
+          context.drawImage(imagen4, 50, 75, 700, 450);
+          context.fillText('Letra O', 400, 58);
+          context.font = '24pt Times';
+          context.fillStyle = 'white';
+          context.fontweight = 'italic';
+          context.textAlign = 'center';
+          context.fillText('Press A, C, H, N or P', 400, 570);
+          break;
+        case keycode.LETRA_S:
+          console.log("up!");
+          context.clearRect(0,0, innerWidth, innerHeight);
+          context.drawImage(imagen5, 50, 75, 700, 450);
+          context.fillText('Letra S', 400, 58);
+          context.font = '24pt Times';
+          context.fillStyle = 'white';
+          context.fontweight = 'italic';
+          context.textAlign = 'center';
+          context.fillText('Press A, B, F, O or S', 400, 570);
+        default:
+          console.log(event.keyCode);
+        }
+      }
+ var imagen = new Image();
+    imagen.src = "anacondanicki.jpg";
+    imagen.onLoad = function(){
+    context.drawImage(imagen, 50, 75, 700, 450);
+    }
+    var imagen2 = new Image();
+    imagen2.src = "barbieworldnicki.jpg";
+    imagen2.onLoad = function(){
+    context.drawImage(imagen2, 50, 75, 700, 450);
+    }
+    var imagen3 = new Image();
+    imagen3.src = "feelingmyselfnicki.jpg";
+    imagen3.onLoad = function(){
+    context.drawImage(imagen3, 50, 75, 700, 450);
+    }
+    var imagen4 = new Image();
+    imagen4.src = "onlynicki.jpg";
+    imagen4.onLoad = function(){
+    context.drawImage(imagen4, 50, 75, 700, 450);
+    }
+    var imagen5 = new Image();
+    imagen5.src = "starshipsnicki.jpg";
+    imagen5.onLoad = function(){
+    context.drawImage(imagen5, 50, 75, 700, 450);
+    }
+   
+      window.addEventListener('keydown', onKeyboardEvent, false);
+    };
+    </script>
+  </body>
+</html>
